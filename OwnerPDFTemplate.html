@@ -1,4 +1,3 @@
-
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -36,6 +35,85 @@
         </div>
     </div>
     <div class="divider"></div>
+    <div class="section section-1">
+        <div class="col date">
+            <label>[[ ${dateLabel} ]]</label>
+            <span>[[ ${date} ]]</span>
+        </div>
+        <div class="col vehicle-name">
+            <label>[[ ${vehicleLabel} ]]</label>
+            <span>[[ ${vehicleName} ]]</span>
+        </div>
+        <div class="col vehicle-vin">
+            <label>[[ ${vinLabel} ]]</label>
+            <span>[[ ${vin} ]]</span>
+        </div>
+        <div class="col customer-info">
+            <label>[[ ${customerLabel} ]]</label>
+            <span>[[ ${customerName} ]] </span>
+        </div>
+    </div>
+    <div class="section section-2">
+        <div class="title">
+            [[ ${pdfMandatoryFeatures} ]]
+        </div>
+        <div class="features" >
+            <ul>
+                <th:block th:each="feature : ${mandatoryFeatures}">
+                    <li>
+                        <input
+                            type="checkbox"
+                            id="${'feature'[[${featureStat.index}]]}"
+                            name="feature1"
+                        />
+                        <label for="${'feature'[[${featureStat.index}]]}">[[ ${feature} ]]</label>
+                    </li>
+                </th:block>
+            </ul>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="title">
+            [[ ${customerSpecialRequestTitle} ]]
+        </div>
+        <span
+        > [[ ${customerNotes} ]]</span
+        >
+    </div>
+    <div class="section section-4">
+        <div class="title">
+            [[ ${featuresChosenTitle} ]]
+        </div>
+        <div class="features">
+            <ul>
+                <th:block th:each="feature : ${chosenFeatures}">
+                    <li>
+                        <input
+                            type="checkbox"
+                            id="${'selected-feature'[[${featureStat.index}]]}"
+                            name="feature1"
+                        />
+                        <label for="${'selected-feature'[[${featureStat.index}]]}"
+                        >[[ ${feature} ]]</label
+                        >
+                    </li>
+                </th:block>
+            </ul>
+        </div>
+    </div>
+    <div class="section section-5">
+        <div class="title">
+            [[ ${featuresNotChosenTitle} ]]
+        </div>
+        <ul>
+            <th:block th:each="feature : ${ignoredFeatures}">
+                <li>
+                    <span class="cross-mark-icon"></span>
+                    <span class="feature">[[ ${feature} ]]</span>
+                </li>
+            </th:block>
+        </ul>
+    </div>
     <div class="divider"></div>
 </div>
 </body>
